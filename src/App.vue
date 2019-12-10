@@ -17,15 +17,22 @@
       <label for="WatchingMovie">Watching Movie</label>
       <input type="checkbox" value="Watching Movie" v-model.lazy="hobbies" />
     </div>
+    <label for="age">Age</label>
+    <select v-model.lazy="age">
+      <option selected>Selece Age</option>
+      <option v-for="ages in userage" v-bind:key="ages">{{ages}}</option>
+    </select>
     <div id="review">
       <label for="Readname">UserName: {{ name }}</label>
       <br />
       <label for="Reademail">UserEmail: {{ email }}</label>
       <br />
-      <label for="Reademail">User Hobbies:</label>
+      <label for="Readhobbies">User Hobbies:</label>
       <ul>
         <li v-for="hobby in hobbies" v-bind:key="hobby">{{ hobby }}</li>
       </ul>
+      <br />
+      <label for="ReadAge">UserAge: {{ age }}</label>
     </div>
   </div>
 </template>
@@ -36,7 +43,9 @@ export default {
     return {
       name: "",
       email: "",
-      hobbies: []
+      hobbies: [],
+      age: "",
+      userage: ["0-5", "5-15", "15-35", "35-65", "65 Above"]
     };
   }
 };
